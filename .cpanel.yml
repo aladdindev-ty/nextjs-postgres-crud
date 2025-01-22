@@ -1,0 +1,15 @@
+---
+deployment:
+  tasks:
+    - npm install
+    - npm run build
+    - npm run export
+
+  directories:
+    - path: /home/easyso87/nextjs.easy-soft-tlemcen.com
+      repo: origin/main
+      branch: main
+      purge: true
+
+  post_deploy:
+    - /scripts/restartsrv_apache
